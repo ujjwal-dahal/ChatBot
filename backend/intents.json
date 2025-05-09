@@ -1,0 +1,145 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hello",
+                "Hey",
+                "Hi there",
+                "Good morning",
+                "Good afternoon",
+                "Greetings",
+                "What's up?",
+                "How are you?"
+            ],
+            "responses": [
+                "Hello Ujjwal! Welcome to MeroDookan! How can I assist you today?",
+                "Hi there! Excited to help you explore MeroDookan!",
+                "Welcome Ujjwal! Let me know how I can help you with MeroDookan.",
+                "Namaste Ujjwal! You're now chatting with MeroDookan assistant."
+            ]
+        },
+        {
+            "tag": "company_name",
+            "patterns": [
+                "What is your company name?",
+                "Tell me the name of your company",
+                "Company name?"
+            ],
+            "responses": [
+                "Our company name is MeroDookan.",
+                "We are called MeroDookan.",
+                "The name of our company is MeroDookan."
+            ]
+        },
+        {
+            "tag": "location",
+            "patterns": [
+                "Where is your company located?",
+                "Company location?",
+                "Where are you based?",
+                "Where is your office?"
+            ],
+            "responses": [
+                "Our company is located in Biratnagar.",
+                "You can find us at Biratnagar.",
+                "We are based in Biratnagar."
+            ]
+        },
+        {
+            "tag": "founded_year",
+            "patterns": [
+                "When was the company founded?",
+                "What is your founding year?",
+                "Since when are you operating?",
+                "Founding date?"
+            ],
+            "responses": [
+                "We were founded in 2010.",
+                "Our company started in 2010.",
+                "We've been operating since 2010."
+            ]
+        },
+        {
+            "tag": "about",
+            "patterns": [
+                "Tell me about your company",
+                "What do you do?",
+                "Can you provide details about MeroDookan?",
+                "What is MeroDookan?",
+                "Tell me about MeroDookan.",
+                "Could you describe MeroDookan?",
+                "Details about MeroDookan",
+                "Information on MeroDookan",
+                "Can you give me some information about MeroDookan?",
+                "I'd like some information on MeroDookan.",
+                "Fill me in on MeroDookan.",
+                "Provide some insight into MeroDookan.",
+                "Brief me on MeroDookan."
+            ],
+            "responses": [
+                "NepaliDookan is an online shopping platform based in Nepal that offers a wide range of locally made products. The company was created to support small Nepali businesses by giving them a digital space to sell their items. It connects local sellers with buyers from different parts of Nepal, making online shopping easy and trusted. NepaliDookan focuses on quality, affordability, and promoting \"Made in Nepal\" goods. The platform is user-friendly and safe, helping customers find everyday products without leaving their homes. Its mission is to grow Nepal’s e-commerce industry while supporting local entrepreneurs and handmade products."
+            ]
+        },
+        {
+            "tag": "products_services",
+            "patterns": [
+                "What services do you offer?",
+                "Tell me your products and services",
+                "What do you provide?",
+                "List your services",
+                "Can you tell me about your offerings?",
+                "What kind of services do you provide?",
+                "What are your products?",
+                "Tell me about your products and services",
+                "Services you offer?",
+                "What does your company do?",
+                "Do you provide any services?",
+                "I want to know about your services",
+                "What is your business about?",
+                "What type of products do you have?"
+            ],
+            "responses": [
+                "We offer NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable..",
+                "Our main services include NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable..",
+                "We provide the following: NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable..",
+                "Our company specializes in NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable..",
+                "Here are our services: NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable..",
+                "You can get NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable. from us.",
+                "Our offerings include NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable..",
+                "We deliver NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable..",
+                "NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable. are the core of our business.",
+                "Looking for NepaliDookan sells a variety of products such as clothes, handmade crafts, shoes, bags, kitchen items, and more. Customers can browse items online, place orders easily, and get them delivered anywhere in Nepal. The platform also allows local sellers to register their shops and sell online. In addition, NepaliDookan offers customer support, return and exchange services, and secure payment options to make online shopping more comfortable and reliable.? We’ve got you covered!"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "Thx",
+                "Thanks a lot",
+                "Many thanks",
+                "Thank you so much",
+                "Thanks for your help",
+                "Thank you very much",
+                "Thanks a ton",
+                "Appreciate it",
+                "Much appreciated"
+            ],
+            "responses": [
+                "Thank You For Visiting",
+                "You're welcome!",
+                "Glad I could help.",
+                "Happy to help!",
+                "No problem at all.",
+                "Anytime!",
+                "You're most welcome.",
+                "Always here to assist you!",
+                "Thank *you* for reaching out!",
+                "It was my pleasure."
+            ]
+        }
+    ]
+}

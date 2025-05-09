@@ -5,10 +5,13 @@ import RenderTextArea from "@/components/RenderTextArea";
 import axios from "axios";
 import { useFormik } from "formik";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import * as Yup from "yup";
+import TrainProgress from "@/components/TrainProgress";
 
 export default function FormPage() {
-  const [formData, setFormData] = useState({});
+  const [isTraining, setIsTraining] = useState(false);
+  const router = useRouter();
 
   const formik = useFormik({
     initialValues: {
@@ -20,108 +23,117 @@ export default function FormPage() {
       product_and_services: "",
       greeting_message: "",
       thanks_message: "",
+      epoch: "",
     },
     validationSchema: Yup.object({
       user_name: Yup.string().required("Please enter your name."),
       company_name: Yup.string().required("Please provide the company name."),
       location: Yup.string().required("Please specify the company location."),
-      founded_year: Yup.string().required(
-        "Please enter the year the company was founded."
-      ),
+      founded_year: Yup.string().required("Please enter the founding year."),
       about_company: Yup.string()
-        .min(
-          50,
-          "Please provide a more detailed description (at least 50 characters)."
-        )
+        .min(50, "At least 50 characters.")
         .required("Tell us about the company."),
       product_and_services: Yup.string().required(
         "Please describe the products and services offered."
       ),
-      greeting_message: Yup.string().required(
-        "A greeting message is required to welcome users."
-      ),
-      thanks_message: Yup.string().required(
-        "Please include a message to thank your users."
-      ),
+      greeting_message: Yup.string().required("Greeting message is required."),
+      thanks_message: Yup.string().required("Thanks message is required."),
+      epoch: Yup.string().required("Epoch must be provided."),
     }),
 
     onSubmit: (values) => {
-      setFormData(values);
       sendFormData(values);
     },
   });
 
   const sendFormData = async (data) => {
     try {
-      let response = await axios.post("url", data);
-      console.log(response.data);
+      await axios.post("http://127.0.0.1:8000/api/", data);
+      setIsTraining(true);
+      await axios.post("http://127.0.0.1:8000/api/train-bot/");
     } catch (error) {
-      console.log("Error Message : ", error.message);
+      console.error("Error:", error.message);
+      alert("Something went wrong while training the bot.");
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
-      <div className="bg-gray-800 shadow-2xl rounded-2xl p-8 w-full max-w-3xl">
-        <h1 className="text-3xl font-bold mb-6 text-center text-white">
+      <div className="bg-gray-800/90 backdrop-blur-md shadow-2xl rounded-3xl p-10 w-full max-w-4xl border border-gray-700">
+        <h1 className="text-4xl font-semibold mb-10 text-center text-white">
           Company Information Form
         </h1>
 
-        <form onSubmit={formik.handleSubmit} className="space-y-6">
-          {/* Basic Info */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <RenderInput label="User Name" name="user_name" formik={formik} />
-            <RenderInput
-              label="Company Name"
-              name="company_name"
-              formik={formik}
-            />
-            <RenderInput label="Location" name="location" formik={formik} />
-            <RenderInput
-              label="Founded Year"
-              name="founded_year"
-              type="number"
-              formik={formik}
-            />
-          </div>
+        {isTraining ? (
+          <TrainProgress />
+        ) : (
+          <form onSubmit={formik.handleSubmit} className="space-y-8">
+            {/* Basic Info */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <RenderInput label="User Name" name="user_name" formik={formik} />
+              <RenderInput
+                label="Company Name"
+                name="company_name"
+                formik={formik}
+              />
+              <RenderInput label="Location" name="location" formik={formik} />
+              <RenderInput
+                label="Founded Year"
+                name="founded_year"
+                type="number"
+                formik={formik}
+              />
+            </div>
 
-          {/* Company Description */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <RenderTextArea
-              label="About Company"
-              name="about_company"
-              rows={4}
-              formik={formik}
-            />
-            <RenderTextArea
-              label="Product & Services"
-              name="product_and_services"
-              rows={4}
-              formik={formik}
-            />
-          </div>
+            {/* Descriptions */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <RenderTextArea
+                label="About Company"
+                name="about_company"
+                rows={5}
+                formik={formik}
+              />
+              <RenderTextArea
+                label="Product & Services"
+                name="product_and_services"
+                rows={5}
+                formik={formik}
+              />
+            </div>
 
-          {/* Messages */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <RenderInput
-              label="Greeting Message"
-              name="greeting_message"
-              formik={formik}
-            />
-            <RenderInput
-              label="Thanks Message"
-              name="thanks_message"
-              formik={formik}
-            />
-          </div>
+            {/* Messages */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <RenderInput
+                label="Greeting Message"
+                name="greeting_message"
+                formik={formik}
+              />
+              <RenderInput
+                label="Thanks Message"
+                name="thanks_message"
+                formik={formik}
+              />
+            </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300"
-          >
-            Train Bot
-          </button>
-        </form>
+            {/* Epoch */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <RenderInput
+                label="Epoch"
+                name="epoch"
+                type="number"
+                formik={formik}
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full py-3 rounded-xl font-medium bg-indigo-600 hover:bg-indigo-700 text-white"
+            >
+              Train Bot
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
